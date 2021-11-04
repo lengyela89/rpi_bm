@@ -1,0 +1,395 @@
+
+build/output.elf:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+00008000 <_start>:
+    8000:	e3a0d902 	mov	sp, #32768	; 0x8000
+    8004:	ea000162 	b	8594 <kernel_main>
+
+Disassembly of section .text:
+
+00008008 <SYST_getRegisters>:
+    8008:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+    800c:	e28db000 	add	fp, sp, #0
+    8010:	e24dd00c 	sub	sp, sp, #12
+    8014:	e59f3014 	ldr	r3, [pc, #20]	; 8030 <SYST_getRegisters+0x28>
+    8018:	e50b3008 	str	r3, [fp, #-8]
+    801c:	e51b3008 	ldr	r3, [fp, #-8]
+    8020:	e1a00003 	mov	r0, r3
+    8024:	e28bd000 	add	sp, fp, #0
+    8028:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+    802c:	e12fff1e 	bx	lr
+    8030:	20003000 	.word	0x20003000
+
+00008034 <SYST_getChannelMatchStatus>:
+    8034:	e92d4800 	push	{fp, lr}
+    8038:	e28db004 	add	fp, sp, #4
+    803c:	e24dd010 	sub	sp, sp, #16
+    8040:	e1a03000 	mov	r3, r0
+    8044:	e54b300d 	strb	r3, [fp, #-13]
+    8048:	ebffffee 	bl	8008 <SYST_getRegisters>
+    804c:	e50b0008 	str	r0, [fp, #-8]
+    8050:	e55b300d 	ldrb	r3, [fp, #-13]
+    8054:	e3530003 	cmp	r3, #3
+    8058:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+    805c:	ea00001b 	b	80d0 <SYST_getChannelMatchStatus+0x9c>
+    8060:	00008070 	.word	0x00008070
+    8064:	00008088 	.word	0x00008088
+    8068:	000080a0 	.word	0x000080a0
+    806c:	000080b8 	.word	0x000080b8
+    8070:	e51b3008 	ldr	r3, [fp, #-8]
+    8074:	e5933000 	ldr	r3, [r3]
+    8078:	e20330ff 	and	r3, r3, #255	; 0xff
+    807c:	e2033001 	and	r3, r3, #1
+    8080:	e20330ff 	and	r3, r3, #255	; 0xff
+    8084:	ea000012 	b	80d4 <SYST_getChannelMatchStatus+0xa0>
+    8088:	e51b3008 	ldr	r3, [fp, #-8]
+    808c:	e5933000 	ldr	r3, [r3]
+    8090:	e20330ff 	and	r3, r3, #255	; 0xff
+    8094:	e2033002 	and	r3, r3, #2
+    8098:	e20330ff 	and	r3, r3, #255	; 0xff
+    809c:	ea00000c 	b	80d4 <SYST_getChannelMatchStatus+0xa0>
+    80a0:	e51b3008 	ldr	r3, [fp, #-8]
+    80a4:	e5933000 	ldr	r3, [r3]
+    80a8:	e20330ff 	and	r3, r3, #255	; 0xff
+    80ac:	e2033004 	and	r3, r3, #4
+    80b0:	e20330ff 	and	r3, r3, #255	; 0xff
+    80b4:	ea000006 	b	80d4 <SYST_getChannelMatchStatus+0xa0>
+    80b8:	e51b3008 	ldr	r3, [fp, #-8]
+    80bc:	e5933000 	ldr	r3, [r3]
+    80c0:	e20330ff 	and	r3, r3, #255	; 0xff
+    80c4:	e2033008 	and	r3, r3, #8
+    80c8:	e20330ff 	and	r3, r3, #255	; 0xff
+    80cc:	ea000000 	b	80d4 <SYST_getChannelMatchStatus+0xa0>
+    80d0:	e3a03000 	mov	r3, #0
+    80d4:	e1a00003 	mov	r0, r3
+    80d8:	e24bd004 	sub	sp, fp, #4
+    80dc:	e8bd4800 	pop	{fp, lr}
+    80e0:	e12fff1e 	bx	lr
+
+000080e4 <SYST_clearChannelMatchStatus>:
+    80e4:	e92d4800 	push	{fp, lr}
+    80e8:	e28db004 	add	fp, sp, #4
+    80ec:	e24dd010 	sub	sp, sp, #16
+    80f0:	e1a03000 	mov	r3, r0
+    80f4:	e54b300d 	strb	r3, [fp, #-13]
+    80f8:	ebffffc2 	bl	8008 <SYST_getRegisters>
+    80fc:	e50b0008 	str	r0, [fp, #-8]
+    8100:	e55b300d 	ldrb	r3, [fp, #-13]
+    8104:	e3530003 	cmp	r3, #3
+    8108:	ca000008 	bgt	8130 <SYST_clearChannelMatchStatus+0x4c>
+    810c:	e3530000 	cmp	r3, #0
+    8110:	ba000027 	blt	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    8114:	e3530003 	cmp	r3, #3
+    8118:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+    811c:	ea000024 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    8120:	0000813c 	.word	0x0000813c
+    8124:	00008154 	.word	0x00008154
+    8128:	0000816c 	.word	0x0000816c
+    812c:	00008184 	.word	0x00008184
+    8130:	e35300ff 	cmp	r3, #255	; 0xff
+    8134:	0a000018 	beq	819c <SYST_clearChannelMatchStatus+0xb8>
+    8138:	ea00001d 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    813c:	e51b3008 	ldr	r3, [fp, #-8]
+    8140:	e5933000 	ldr	r3, [r3]
+    8144:	e2232001 	eor	r2, r3, #1
+    8148:	e51b3008 	ldr	r3, [fp, #-8]
+    814c:	e5832000 	str	r2, [r3]
+    8150:	ea000017 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    8154:	e51b3008 	ldr	r3, [fp, #-8]
+    8158:	e5933000 	ldr	r3, [r3]
+    815c:	e2232002 	eor	r2, r3, #2
+    8160:	e51b3008 	ldr	r3, [fp, #-8]
+    8164:	e5832000 	str	r2, [r3]
+    8168:	ea000011 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    816c:	e51b3008 	ldr	r3, [fp, #-8]
+    8170:	e5933000 	ldr	r3, [r3]
+    8174:	e2232004 	eor	r2, r3, #4
+    8178:	e51b3008 	ldr	r3, [fp, #-8]
+    817c:	e5832000 	str	r2, [r3]
+    8180:	ea00000b 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    8184:	e51b3008 	ldr	r3, [fp, #-8]
+    8188:	e5933000 	ldr	r3, [r3]
+    818c:	e2232008 	eor	r2, r3, #8
+    8190:	e51b3008 	ldr	r3, [fp, #-8]
+    8194:	e5832000 	str	r2, [r3]
+    8198:	ea000005 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    819c:	e51b3008 	ldr	r3, [fp, #-8]
+    81a0:	e5933000 	ldr	r3, [r3]
+    81a4:	e223200f 	eor	r2, r3, #15
+    81a8:	e51b3008 	ldr	r3, [fp, #-8]
+    81ac:	e5832000 	str	r2, [r3]
+    81b0:	eaffffff 	b	81b4 <SYST_clearChannelMatchStatus+0xd0>
+    81b4:	e1a00000 	nop			; (mov r0, r0)
+    81b8:	e24bd004 	sub	sp, fp, #4
+    81bc:	e8bd4800 	pop	{fp, lr}
+    81c0:	e12fff1e 	bx	lr
+
+000081c4 <GPIO_getRegisters>:
+    81c4:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+    81c8:	e28db000 	add	fp, sp, #0
+    81cc:	e24dd00c 	sub	sp, sp, #12
+    81d0:	e59f3014 	ldr	r3, [pc, #20]	; 81ec <GPIO_getRegisters+0x28>
+    81d4:	e50b3008 	str	r3, [fp, #-8]
+    81d8:	e51b3008 	ldr	r3, [fp, #-8]
+    81dc:	e1a00003 	mov	r0, r3
+    81e0:	e28bd000 	add	sp, fp, #0
+    81e4:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+    81e8:	e12fff1e 	bx	lr
+    81ec:	20200000 	.word	0x20200000
+
+000081f0 <GPIO_setPinFunction>:
+    81f0:	e92d4800 	push	{fp, lr}
+    81f4:	e28db004 	add	fp, sp, #4
+    81f8:	e24dd018 	sub	sp, sp, #24
+    81fc:	e1a03000 	mov	r3, r0
+    8200:	e1a02001 	mov	r2, r1
+    8204:	e54b3015 	strb	r3, [fp, #-21]	; 0xffffffeb
+    8208:	e1a03002 	mov	r3, r2
+    820c:	e54b3016 	strb	r3, [fp, #-22]	; 0xffffffea
+    8210:	e55b3015 	ldrb	r3, [fp, #-21]	; 0xffffffeb
+    8214:	e59f2130 	ldr	r2, [pc, #304]	; 834c <GPIO_setPinFunction+0x15c>
+    8218:	e0831392 	umull	r1, r3, r2, r3
+    821c:	e1a031a3 	lsr	r3, r3, #3
+    8220:	e54b3005 	strb	r3, [fp, #-5]
+    8224:	e55b2015 	ldrb	r2, [fp, #-21]	; 0xffffffeb
+    8228:	e59f311c 	ldr	r3, [pc, #284]	; 834c <GPIO_setPinFunction+0x15c>
+    822c:	e0831392 	umull	r1, r3, r2, r3
+    8230:	e1a011a3 	lsr	r1, r3, #3
+    8234:	e1a03001 	mov	r3, r1
+    8238:	e1a03103 	lsl	r3, r3, #2
+    823c:	e0833001 	add	r3, r3, r1
+    8240:	e1a03083 	lsl	r3, r3, #1
+    8244:	e0423003 	sub	r3, r2, r3
+    8248:	e20330ff 	and	r3, r3, #255	; 0xff
+    824c:	e1a02003 	mov	r2, r3
+    8250:	e1a02082 	lsl	r2, r2, #1
+    8254:	e0823003 	add	r3, r2, r3
+    8258:	e54b3006 	strb	r3, [fp, #-6]
+    825c:	e3e03000 	mvn	r3, #0
+    8260:	e50b300c 	str	r3, [fp, #-12]
+    8264:	ebffffd6 	bl	81c4 <GPIO_getRegisters>
+    8268:	e50b0010 	str	r0, [fp, #-16]
+    826c:	e55b3005 	ldrb	r3, [fp, #-5]
+    8270:	e3530005 	cmp	r3, #5
+    8274:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+    8278:	ea00002f 	b	833c <GPIO_setPinFunction+0x14c>
+    827c:	00008294 	.word	0x00008294
+    8280:	000082b0 	.word	0x000082b0
+    8284:	000082cc 	.word	0x000082cc
+    8288:	000082e8 	.word	0x000082e8
+    828c:	00008304 	.word	0x00008304
+    8290:	00008320 	.word	0x00008320
+    8294:	e51b3010 	ldr	r3, [fp, #-16]
+    8298:	e5932000 	ldr	r2, [r3]
+    829c:	e51b300c 	ldr	r3, [fp, #-12]
+    82a0:	e0022003 	and	r2, r2, r3
+    82a4:	e51b3010 	ldr	r3, [fp, #-16]
+    82a8:	e5832000 	str	r2, [r3]
+    82ac:	ea000022 	b	833c <GPIO_setPinFunction+0x14c>
+    82b0:	e51b3010 	ldr	r3, [fp, #-16]
+    82b4:	e5932004 	ldr	r2, [r3, #4]
+    82b8:	e51b300c 	ldr	r3, [fp, #-12]
+    82bc:	e0022003 	and	r2, r2, r3
+    82c0:	e51b3010 	ldr	r3, [fp, #-16]
+    82c4:	e5832004 	str	r2, [r3, #4]
+    82c8:	ea00001b 	b	833c <GPIO_setPinFunction+0x14c>
+    82cc:	e51b3010 	ldr	r3, [fp, #-16]
+    82d0:	e5932008 	ldr	r2, [r3, #8]
+    82d4:	e51b300c 	ldr	r3, [fp, #-12]
+    82d8:	e0022003 	and	r2, r2, r3
+    82dc:	e51b3010 	ldr	r3, [fp, #-16]
+    82e0:	e5832008 	str	r2, [r3, #8]
+    82e4:	ea000014 	b	833c <GPIO_setPinFunction+0x14c>
+    82e8:	e51b3010 	ldr	r3, [fp, #-16]
+    82ec:	e593200c 	ldr	r2, [r3, #12]
+    82f0:	e51b300c 	ldr	r3, [fp, #-12]
+    82f4:	e0022003 	and	r2, r2, r3
+    82f8:	e51b3010 	ldr	r3, [fp, #-16]
+    82fc:	e583200c 	str	r2, [r3, #12]
+    8300:	ea00000d 	b	833c <GPIO_setPinFunction+0x14c>
+    8304:	e51b3010 	ldr	r3, [fp, #-16]
+    8308:	e5932010 	ldr	r2, [r3, #16]
+    830c:	e51b300c 	ldr	r3, [fp, #-12]
+    8310:	e0022003 	and	r2, r2, r3
+    8314:	e51b3010 	ldr	r3, [fp, #-16]
+    8318:	e5832010 	str	r2, [r3, #16]
+    831c:	ea000006 	b	833c <GPIO_setPinFunction+0x14c>
+    8320:	e51b3010 	ldr	r3, [fp, #-16]
+    8324:	e5932014 	ldr	r2, [r3, #20]
+    8328:	e51b300c 	ldr	r3, [fp, #-12]
+    832c:	e0022003 	and	r2, r2, r3
+    8330:	e51b3010 	ldr	r3, [fp, #-16]
+    8334:	e5832014 	str	r2, [r3, #20]
+    8338:	e1a00000 	nop			; (mov r0, r0)
+    833c:	e1a00000 	nop			; (mov r0, r0)
+    8340:	e24bd004 	sub	sp, fp, #4
+    8344:	e8bd4800 	pop	{fp, lr}
+    8348:	e12fff1e 	bx	lr
+    834c:	cccccccd 	.word	0xcccccccd
+
+00008350 <GPIO_setPin>:
+    8350:	e92d4800 	push	{fp, lr}
+    8354:	e28db004 	add	fp, sp, #4
+    8358:	e24dd010 	sub	sp, sp, #16
+    835c:	e1a03000 	mov	r3, r0
+    8360:	e54b300d 	strb	r3, [fp, #-13]
+    8364:	ebffff96 	bl	81c4 <GPIO_getRegisters>
+    8368:	e50b0008 	str	r0, [fp, #-8]
+    836c:	e55b300d 	ldrb	r3, [fp, #-13]
+    8370:	e353001f 	cmp	r3, #31
+    8374:	8a000006 	bhi	8394 <GPIO_setPin+0x44>
+    8378:	e55b300d 	ldrb	r3, [fp, #-13]
+    837c:	e203301f 	and	r3, r3, #31
+    8380:	e3a02001 	mov	r2, #1
+    8384:	e1a02312 	lsl	r2, r2, r3
+    8388:	e51b3008 	ldr	r3, [fp, #-8]
+    838c:	e583201c 	str	r2, [r3, #28]
+    8390:	ea000005 	b	83ac <GPIO_setPin+0x5c>
+    8394:	e55b300d 	ldrb	r3, [fp, #-13]
+    8398:	e203301f 	and	r3, r3, #31
+    839c:	e3a02001 	mov	r2, #1
+    83a0:	e1a02312 	lsl	r2, r2, r3
+    83a4:	e51b3008 	ldr	r3, [fp, #-8]
+    83a8:	e5832020 	str	r2, [r3, #32]
+    83ac:	e1a00000 	nop			; (mov r0, r0)
+    83b0:	e24bd004 	sub	sp, fp, #4
+    83b4:	e8bd4800 	pop	{fp, lr}
+    83b8:	e12fff1e 	bx	lr
+
+000083bc <GPIO_clearPin>:
+    83bc:	e92d4800 	push	{fp, lr}
+    83c0:	e28db004 	add	fp, sp, #4
+    83c4:	e24dd010 	sub	sp, sp, #16
+    83c8:	e1a03000 	mov	r3, r0
+    83cc:	e54b300d 	strb	r3, [fp, #-13]
+    83d0:	ebffff7b 	bl	81c4 <GPIO_getRegisters>
+    83d4:	e50b0008 	str	r0, [fp, #-8]
+    83d8:	e55b300d 	ldrb	r3, [fp, #-13]
+    83dc:	e353001f 	cmp	r3, #31
+    83e0:	8a000006 	bhi	8400 <GPIO_clearPin+0x44>
+    83e4:	e55b300d 	ldrb	r3, [fp, #-13]
+    83e8:	e203301f 	and	r3, r3, #31
+    83ec:	e3a02001 	mov	r2, #1
+    83f0:	e1a02312 	lsl	r2, r2, r3
+    83f4:	e51b3008 	ldr	r3, [fp, #-8]
+    83f8:	e5832028 	str	r2, [r3, #40]	; 0x28
+    83fc:	ea000005 	b	8418 <GPIO_clearPin+0x5c>
+    8400:	e55b300d 	ldrb	r3, [fp, #-13]
+    8404:	e203301f 	and	r3, r3, #31
+    8408:	e3a02001 	mov	r2, #1
+    840c:	e1a02312 	lsl	r2, r2, r3
+    8410:	e51b3008 	ldr	r3, [fp, #-8]
+    8414:	e583202c 	str	r2, [r3, #44]	; 0x2c
+    8418:	e1a00000 	nop			; (mov r0, r0)
+    841c:	e24bd004 	sub	sp, fp, #4
+    8420:	e8bd4800 	pop	{fp, lr}
+    8424:	e12fff1e 	bx	lr
+
+00008428 <waitUS>:
+    8428:	e92d4800 	push	{fp, lr}
+    842c:	e28db004 	add	fp, sp, #4
+    8430:	e24dd010 	sub	sp, sp, #16
+    8434:	e50b0010 	str	r0, [fp, #-16]
+    8438:	ebfffef2 	bl	8008 <SYST_getRegisters>
+    843c:	e50b0008 	str	r0, [fp, #-8]
+    8440:	e51b3008 	ldr	r3, [fp, #-8]
+    8444:	e5933004 	ldr	r3, [r3, #4]
+    8448:	e50b300c 	str	r3, [fp, #-12]
+    844c:	e1a00000 	nop			; (mov r0, r0)
+    8450:	e51b3008 	ldr	r3, [fp, #-8]
+    8454:	e5932004 	ldr	r2, [r3, #4]
+    8458:	e51b300c 	ldr	r3, [fp, #-12]
+    845c:	e0423003 	sub	r3, r2, r3
+    8460:	e51b2010 	ldr	r2, [fp, #-16]
+    8464:	e1520003 	cmp	r2, r3
+    8468:	8afffff8 	bhi	8450 <waitUS+0x28>
+    846c:	e1a00000 	nop			; (mov r0, r0)
+    8470:	e1a00000 	nop			; (mov r0, r0)
+    8474:	e24bd004 	sub	sp, fp, #4
+    8478:	e8bd4800 	pop	{fp, lr}
+    847c:	e12fff1e 	bx	lr
+
+00008480 <simpleBlinking>:
+    8480:	e92d4800 	push	{fp, lr}
+    8484:	e28db004 	add	fp, sp, #4
+    8488:	e24dd008 	sub	sp, sp, #8
+    848c:	e3a01001 	mov	r1, #1
+    8490:	e3a00010 	mov	r0, #16
+    8494:	ebffff55 	bl	81f0 <GPIO_setPinFunction>
+    8498:	e3a00010 	mov	r0, #16
+    849c:	ebffffc6 	bl	83bc <GPIO_clearPin>
+    84a0:	e3a03001 	mov	r3, #1
+    84a4:	e54b3005 	strb	r3, [fp, #-5]
+    84a8:	e59f0034 	ldr	r0, [pc, #52]	; 84e4 <simpleBlinking+0x64>
+    84ac:	ebffffdd 	bl	8428 <waitUS>
+    84b0:	e55b3005 	ldrb	r3, [fp, #-5]
+    84b4:	e3530001 	cmp	r3, #1
+    84b8:	1a000004 	bne	84d0 <simpleBlinking+0x50>
+    84bc:	e3a00010 	mov	r0, #16
+    84c0:	ebffffa2 	bl	8350 <GPIO_setPin>
+    84c4:	e3a03000 	mov	r3, #0
+    84c8:	e54b3005 	strb	r3, [fp, #-5]
+    84cc:	eafffff5 	b	84a8 <simpleBlinking+0x28>
+    84d0:	e3a00010 	mov	r0, #16
+    84d4:	ebffffb8 	bl	83bc <GPIO_clearPin>
+    84d8:	e3a03001 	mov	r3, #1
+    84dc:	e54b3005 	strb	r3, [fp, #-5]
+    84e0:	eafffff0 	b	84a8 <simpleBlinking+0x28>
+    84e4:	0007a120 	.word	0x0007a120
+
+000084e8 <patternBlinking>:
+    84e8:	e92d4800 	push	{fp, lr}
+    84ec:	e28db004 	add	fp, sp, #4
+    84f0:	e24dd010 	sub	sp, sp, #16
+    84f4:	e59f3090 	ldr	r3, [pc, #144]	; 858c <patternBlinking+0xa4>
+    84f8:	e50b300c 	str	r3, [fp, #-12]
+    84fc:	e3a03000 	mov	r3, #0
+    8500:	e54b3005 	strb	r3, [fp, #-5]
+    8504:	ea000018 	b	856c <patternBlinking+0x84>
+    8508:	e55b3005 	ldrb	r3, [fp, #-5]
+    850c:	e263301f 	rsb	r3, r3, #31
+    8510:	e51b200c 	ldr	r2, [fp, #-12]
+    8514:	e1a03332 	lsr	r3, r2, r3
+    8518:	e20330ff 	and	r3, r3, #255	; 0xff
+    851c:	e2033001 	and	r3, r3, #1
+    8520:	e54b300d 	strb	r3, [fp, #-13]
+    8524:	e59f0064 	ldr	r0, [pc, #100]	; 8590 <patternBlinking+0xa8>
+    8528:	ebffffbe 	bl	8428 <waitUS>
+    852c:	e55b300d 	ldrb	r3, [fp, #-13]
+    8530:	e3530001 	cmp	r3, #1
+    8534:	1a000002 	bne	8544 <patternBlinking+0x5c>
+    8538:	e3a00010 	mov	r0, #16
+    853c:	ebffff9e 	bl	83bc <GPIO_clearPin>
+    8540:	ea000001 	b	854c <patternBlinking+0x64>
+    8544:	e3a00010 	mov	r0, #16
+    8548:	ebffff80 	bl	8350 <GPIO_setPin>
+    854c:	e55b3005 	ldrb	r3, [fp, #-5]
+    8550:	e353001f 	cmp	r3, #31
+    8554:	1a000001 	bne	8560 <patternBlinking+0x78>
+    8558:	e3e03000 	mvn	r3, #0
+    855c:	e54b3005 	strb	r3, [fp, #-5]
+    8560:	e55b3005 	ldrb	r3, [fp, #-5]
+    8564:	e2833001 	add	r3, r3, #1
+    8568:	e54b3005 	strb	r3, [fp, #-5]
+    856c:	e55b3005 	ldrb	r3, [fp, #-5]
+    8570:	e353001f 	cmp	r3, #31
+    8574:	9affffe3 	bls	8508 <patternBlinking+0x20>
+    8578:	e1a00000 	nop			; (mov r0, r0)
+    857c:	e1a00000 	nop			; (mov r0, r0)
+    8580:	e24bd004 	sub	sp, fp, #4
+    8584:	e8bd4800 	pop	{fp, lr}
+    8588:	e12fff1e 	bx	lr
+    858c:	ffaa222a 	.word	0xffaa222a
+    8590:	0007a120 	.word	0x0007a120
+
+00008594 <kernel_main>:
+    8594:	e92d4800 	push	{fp, lr}
+    8598:	e28db004 	add	fp, sp, #4
+    859c:	ebffffd1 	bl	84e8 <patternBlinking>
+    85a0:	e1a00000 	nop			; (mov r0, r0)
+    85a4:	e24bd004 	sub	sp, fp, #4
+    85a8:	e8bd4800 	pop	{fp, lr}
+    85ac:	e12fff1e 	bx	lr

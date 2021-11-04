@@ -1,0 +1,71 @@
+
+Discarded input sections
+
+ .bss           0x00000000        0x0 build/init.o
+ .ARM.attributes
+                0x00000000       0x12 build/init.o
+ .bss           0x00000000        0x0 build/SystemTimer.o
+ .comment       0x00000000       0x4a build/SystemTimer.o
+ .ARM.attributes
+                0x00000000       0x2a build/SystemTimer.o
+ .bss           0x00000000        0x0 build/gpio.o
+ .comment       0x00000000       0x4a build/gpio.o
+ .ARM.attributes
+                0x00000000       0x2a build/gpio.o
+ .bss           0x00000000        0x0 build/kernel.o
+ .comment       0x00000000       0x4a build/kernel.o
+ .ARM.attributes
+                0x00000000       0x2a build/kernel.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/init.o
+LOAD build/SystemTimer.o
+LOAD build/gpio.o
+LOAD build/kernel.o
+
+.init           0x00008000        0x8
+ __SECT_INIT__BEGIN__:()
+ *(.init)
+ .init          0x00008000        0x8 build/init.o
+                0x00008000                _start
+ __SECT_INIT__END__:()
+
+.text           0x00008008      0x5a8
+ __SECT_TEXT__BEGIN__:()
+ *(.text)
+ .text          0x00008008        0x0 build/init.o
+ .text          0x00008008      0x1bc build/SystemTimer.o
+                0x00008008                SYST_getRegisters
+                0x00008034                SYST_getChannelMatchStatus
+                0x000080e4                SYST_clearChannelMatchStatus
+ .text          0x000081c4      0x264 build/gpio.o
+                0x000081c4                GPIO_getRegisters
+                0x000081f0                GPIO_setPinFunction
+                0x00008350                GPIO_setPin
+                0x000083bc                GPIO_clearPin
+ .text          0x00008428      0x188 build/kernel.o
+                0x00008428                waitUS
+                0x00008480                simpleBlinking
+                0x000084e8                patternBlinking
+                0x00008594                kernel_main
+ __SECT_TEXT__END__:()
+
+.data           0x000085b0        0x0
+ __SECT_DATA__BEGIN__:()
+ *(.data)
+ .data          0x000085b0        0x0 build/init.o
+ .data          0x000085b0        0x0 build/SystemTimer.o
+ .data          0x000085b0        0x0 build/gpio.o
+ .data          0x000085b0        0x0 build/kernel.o
+ __SECT_DATA__END__:()
+
+/DISCARD/
+ *(*)
+OUTPUT(build/output.elf elf32-littlearm)
+LOAD linker stubs
