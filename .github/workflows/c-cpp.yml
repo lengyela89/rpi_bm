@@ -11,8 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: ls
+      run:  ls
     - name: Change dir to BlinkingLedAsm
       run:  cd BlinkingLedAsm
+    - name: ls
+      run:  ls      
     - name: make all
       run: make all
       
