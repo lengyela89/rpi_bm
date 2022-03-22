@@ -2,7 +2,8 @@ name: Workflow test
 
 on:
   push:
-    - '**'
+    paths:
+      - '**'
     
   workflow_dispatch:
 
