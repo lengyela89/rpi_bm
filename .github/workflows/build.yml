@@ -20,6 +20,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: test
+      run: echo "Test message"
+      
     - uses: actions/checkout@v2
     - name: setup
       run: |
