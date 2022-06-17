@@ -1,0 +1,118 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o)
+                              build/AuxiliaryPeripherals.o (__aeabi_uidiv)
+c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_dvmd_tls.o)
+                              c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+
+Discarded input sections
+
+ .bss           0x00000000        0x0 build/init.o
+ .ARM.attributes
+                0x00000000       0x12 build/init.o
+ .bss           0x00000000        0x0 build/AuxiliaryPeripherals.o
+ .comment       0x00000000       0x4a build/AuxiliaryPeripherals.o
+ .ARM.attributes
+                0x00000000       0x2a build/AuxiliaryPeripherals.o
+ .bss           0x00000000        0x0 build/SystemTimer.o
+ .comment       0x00000000       0x4a build/SystemTimer.o
+ .ARM.attributes
+                0x00000000       0x2a build/SystemTimer.o
+ .bss           0x00000000        0x0 build/gpio.o
+ .comment       0x00000000       0x4a build/gpio.o
+ .ARM.attributes
+                0x00000000       0x2a build/gpio.o
+ .bss           0x00000000        0x0 build/kernel.o
+ .comment       0x00000000       0x4a build/kernel.o
+ .ARM.attributes
+                0x00000000       0x2a build/kernel.o
+ .bss           0x00000000        0x0 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000000       0x20 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000000       0x1c c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000000       0x1c c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_dvmd_tls.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/init.o
+LOAD build/AuxiliaryPeripherals.o
+LOAD build/SystemTimer.o
+LOAD build/gpio.o
+LOAD build/kernel.o
+LOAD c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a
+
+.init           0x00008000        0x8
+ __SECT_INIT__BEGIN__:()
+ *(.init)
+ .init          0x00008000        0x8 build/init.o
+                0x00008000                _start
+ __SECT_INIT__END__:()
+
+.text           0x00008008      0xfe0
+ __SECT_TEXT__BEGIN__:()
+ *(.text)
+ .text          0x00008008        0x0 build/init.o
+ .text          0x00008008      0x4d8 build/AuxiliaryPeripherals.o
+                0x00008008                AUXP_getRegisters
+                0x00008028                AUXP_hasPendingInterrupt
+                0x000080e0                AUXP_getPeripheralState
+                0x00008198                AUXP_setPeripheralState
+                0x00008240                AUXP_getMiniUARTStatus
+                0x00008464                AUXP_setMiniUARTBaudrate
+ .text          0x000084e0      0x1bc build/SystemTimer.o
+                0x000084e0                SYST_getRegisters
+                0x0000850c                SYST_getChannelMatchStatus
+                0x000085bc                SYST_clearChannelMatchStatus
+ .text          0x0000869c      0x478 build/gpio.o
+                0x0000869c                GPIO_getRegisters
+                0x000086c8                GPIO_setPinFunction
+                0x00008908                GPIO_setPin
+                0x00008974                GPIO_clearPin
+                0x000089e0                GPIO_setPinPullUpDown
+ .text          0x00008b14      0x3bc build/kernel.o
+                0x00008b14                waitUS
+                0x00008b70                simpleBlinking
+                0x00008bd8                patternBlinking
+                0x00008c68                configureMiniUART
+                0x00008d10                UART_readChar
+                0x00008d94                UART_sendChar
+                0x00008de8                UART_sendString
+                0x00008e60                kernel_main
+ .text          0x00008ed0      0x114 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o)
+                0x00008ed0                __aeabi_uidiv
+                0x00008ed0                __udivsi3
+                0x00008fc4                __aeabi_uidivmod
+ .text          0x00008fe4        0x4 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_dvmd_tls.o)
+                0x00008fe4                __aeabi_idiv0
+                0x00008fe4                __aeabi_ldiv0
+ __SECT_TEXT__END__:()
+
+.rodata         0x00008fe8       0x24
+ __SECT_RODATA__BEGIN__:()
+ *(.rodata)
+ .rodata        0x00008fe8       0x24 build/kernel.o
+ __SECT_RODATA__END__:()
+
+.data           0x0000900c        0x0
+ __SECT_DATA__BEGIN__:()
+ *(.data)
+ .data          0x0000900c        0x0 build/init.o
+ .data          0x0000900c        0x0 build/AuxiliaryPeripherals.o
+ .data          0x0000900c        0x0 build/SystemTimer.o
+ .data          0x0000900c        0x0 build/gpio.o
+ .data          0x0000900c        0x0 build/kernel.o
+ .data          0x0000900c        0x0 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_udivsi3.o)
+ .data          0x0000900c        0x0 c:/__data__/__home_projects__/__rpi__/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a(_dvmd_tls.o)
+ __SECT_DATA__END__:()
+
+/DISCARD/
+ *(*)
+OUTPUT(build/output.elf elf32-littlearm)
+LOAD linker stubs
